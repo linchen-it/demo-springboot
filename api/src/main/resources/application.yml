@@ -1,0 +1,18 @@
+server:
+  port: 8300 #端口号
+
+#指定当前eureka注册中心的地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8035/eureka
+
+spring:
+    application:
+      name: api-provider
+
+    datasource: #数据库配置
+      url: jdbc:mysql://192.168.1.220:3306/qycl_qd2_0708?characterEncoding=UTF-8&autoReconnect=true #换成自己的数据库地址
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: karakal
