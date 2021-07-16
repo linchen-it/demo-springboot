@@ -15,6 +15,6 @@ public class LoginController {
 
     @RequestMapping
     public String login(){
-        return "成功了";
+        return "成功了，第一个微服务";
     }
 }
