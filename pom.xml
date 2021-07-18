@@ -28,12 +28,20 @@
 
 <!--    声明子模块-->
     <modules>
+<!--        持久层 -->
         <module>orm</module>
+<!--        业务层-->
         <module>service</module>
+<!--        微服务注册中心-->
         <module>discovery-eureka</module>
+<!--        web端 -->
         <module>face</module>
+<!--        公共模块-->
         <module>common</module>
+<!--        微服务-->
         <module>api</module>
+<!--        业务异步处理模块-->
+        <module>summer</module>
     </modules>
 
     <dependencies>
