@@ -24,24 +24,29 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <elasticsearch.version>2.0.0</elasticsearch.version>
     </properties>
 
 <!--    声明子模块-->
     <modules>
 <!--        持久层 -->
         <module>orm</module>
-<!--        业务层-->
-        <module>service</module>
+<!--        公共业务层-->
+        <module>base-service</module>
 <!--        微服务注册中心-->
         <module>discovery-eureka</module>
 <!--        web端 -->
         <module>face</module>
 <!--        公共模块-->
         <module>common</module>
-<!--        微服务-->
-        <module>api</module>
+<!--        用户模块-->
+        <module>user</module>
 <!--        业务异步处理模块-->
         <module>summer</module>
+<!--        产品模块-->
+        <module>product</module>
+
+
     </modules>
 
     <dependencies>
@@ -62,14 +67,15 @@
             <scope>test</scope>
             <version>4.12</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.70</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
