@@ -40,7 +40,7 @@
 <!--        公共模块-->
         <module>common</module>
 <!--        用户模块-->
-        <module>user</module>
+        <module>api</module>
 <!--        业务异步处理模块-->
         <module>summer</module>
 <!--        产品模块-->
@@ -73,6 +73,18 @@
             <version>1.2.70</version>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Edgware.SR5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

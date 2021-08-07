@@ -1,22 +1,49 @@
 server:
-  #�˿ں�
+  #端口号
   port: 8035
-
+spring:
+  application:
+    name: eureka-server-cluster
 eureka:
   instance:
     hostname: server1
-
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+#    prefer-ip-address: false
   client:
+    healthcheck:
+      enabled: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-      #����������eureka ע��
-    register-with-eureka: false
-    #����ʱ����client��ע��
-    fetch-registry: false
+      defaultZone: http://server2:8036/eureka
+    #自身是否向eureka中心 注册
+    register-with-eureka: true
+    #获取注册中心已注册的服务名单
+    fetch-registry: true
   server:
-    #��Eureka��������ȡ������Ⱥ��Եȷ������ϵ�ʵ��ʱ����Ҫ�ȴ���ʱ�䣬��λΪ����
-    wait-time-in-ms-when-sync-empty: 5
+    #在Eureka服务器获取不到集群里对等服务器上的实例时，需要等待的时间，单位为毫秒
+    wait-time-in-ms-when-sync-empty: 10
 
-spring:
-    application:
-      name: eureka-server-cluster
+#--------------
+#server:
+#  #端口号
+#  port: 8036
+#spring:
+#  profiles: server2
+#  application:
+#    name: eureka-server-cluster
+#eureka:
+#  instance:
+#    hostname: server2
+##    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+#  client:
+#    healthcheck:
+#      enabled: true
+#    serviceUrl:
+#      defaultZone: http://server1:8035/eureka
+#    #自身是否向eureka中心 注册
+#    register-with-eureka: true
+#    #获取注册中心已注册的服务名单
+#    fetch-registry: true
+#  server:
+#    #在Eureka服务器获取不到集群里对等服务器上的实例时，需要等待的时间，单位为毫秒
+#    wait-time-in-ms-when-sync-empty: 10
+
